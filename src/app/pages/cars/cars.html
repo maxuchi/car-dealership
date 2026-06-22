@@ -1,84 +1,60 @@
 <div class="container py-5">
   <h1 class="mb-4">Our Cars</h1>
-<div class="row mb-4">
 
-  <div class="col-md-6">
-    <select class="form-select">
-      <option>All Brands</option>
-      <option>BMW</option>
-      <option>Audi</option>
-      <option>Mercedes</option>
-    </select>
+  <div class="row mb-4">
+
+    <div class="col-md-6">
+      <select class="form-select">
+        <option>All Brands</option>
+        <option>BMW</option>
+        <option>Audi</option>
+        <option>Mercedes</option>
+      </select>
+    </div>
+
+    <div class="col-md-6">
+      <select class="form-select">
+        <option>All Prices</option>
+        <option>Under $100,000</option>
+        <option>Over $100,000</option>
+      </select>
+    </div>
+
   </div>
 
-  <div class="col-md-6">
-    <select class="form-select">
-      <option>All Prices</option>
-      <option>Under $100,000</option>
-      <option>Over $100,000</option>
-    </select>
-  </div>
-
-</div>
   <div class="row">
 
-    <div class="col-md-4 mb-4">
+    <div
+      class="col-md-4 mb-4"
+      *ngFor="let car of cars"
+    >
       <div class="card">
-        <img
-         src="/images/bmw-m4.jpg"
-          class="card-img-top"
-          alt="BMW"
-        />
-        <div class="card-body">
-          <h5 class="card-title">BMW M4 Competition</h5>
-          <p class="card-text">$84,900</p>
-          <a
-  class="btn btn-primary"
-  routerLink="/cars/1"
->
-  View Details
-</a>
-        </div>
-      </div>
-    </div>
 
-    <div class="col-md-4 mb-4">
-      <div class="card">
         <img
-          src="/images/audi-rs7.jpg"
+          [src]="car.image"
           class="card-img-top"
-          alt="Audi"
+          [alt]="car.name"
         />
-        <div class="card-body">
-          <h5 class="card-title">Audi RS7 Sportback</h5>
-          <p class="card-text">$129000</p>
-          <a
-  class="btn btn-primary"
-  routerLink="/cars/2"
->
-  View Details
-</a>
-        </div>
-      </div>
-    </div>
 
-    <div class="col-md-4 mb-4">
-      <div class="card">
-        <img
-          src="/images/mercedes-amg.jpg"
-          class="card-img-top"
-          alt="Mercedes"
-        />
         <div class="card-body">
-          <h5 class="card-title">Mercedes-AMG GT 63</h5>
-          <p class="card-text">$149900</p>
+
+          <h5 class="card-title">
+            {{ car.name }}
+          </h5>
+
+          <p class="card-text">
+            ${{ car.price }}
+          </p>
+
           <a
-  class="btn btn-primary"
-  routerLink="/cars/3"
->
-  View Details
-</a>
+            class="btn btn-primary"
+            [routerLink]="['/cars', car.id]"
+          >
+            View Details
+          </a>
+
         </div>
+
       </div>
     </div>
 
