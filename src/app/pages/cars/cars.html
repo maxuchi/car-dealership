@@ -4,29 +4,38 @@
   <div class="row mb-4">
 
     <div class="col-md-6">
-      <select class="form-select">
-        <option>All Brands</option>
-        <option>BMW</option>
-        <option>Audi</option>
-        <option>Mercedes</option>
-      </select>
+      <select
+  class="form-select"
+  [(ngModel)]="selectedBrand"
+  (change)="applyFilters()"
+>
+  <option value="All">All Brands</option>
+  <option value="BMW">BMW</option>
+  <option value="Audi">Audi</option>
+  <option value="Mercedes">Mercedes</option>
+</select>
     </div>
 
     <div class="col-md-6">
-      <select class="form-select">
-        <option>All Prices</option>
-        <option>Under $100,000</option>
-        <option>Over $100,000</option>
-      </select>
+      <select
+  class="form-select"
+  [(ngModel)]="selectedPrice"
+  (change)="applyFilters()"
+>
+  <option value="All">All Prices</option>
+  <option value="Under">Under $100,000</option>
+  <option value="Over">Over $100,000</option>
+</select>
     </div>
 
   </div>
 
   <div class="row">
-
-    <div
-      class="col-md-4 mb-4"
-      *ngFor="let car of cars"
+<div
+  class="col-md-4 mb-4"
+  *ngFor="let car of filteredCars"
+  data-aos="zoom-in"
+>
     >
       <div class="card">
 
