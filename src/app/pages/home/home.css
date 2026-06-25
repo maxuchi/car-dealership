@@ -1,31 +1,270 @@
-.hero {
-  height: 80vh;
-  background: linear-gradient(
-      rgba(0, 0, 0, 0.55),
-      rgba(0, 0, 0, 0.55)
-    ),
-    url("https://images.unsplash.com/photo-1503376780353-7e6692767b70")
-      center/cover no-repeat;
+/* ===========================
+   HERO
+=========================== */
 
-  display: flex;
-  align-items: center;
+.hero{
+    min-height:100vh;
+    background:
+        linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.65)),
+        url("/images/bmw-m4.jpg");
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    align-items:center;
 }
 
-.hero-content {
-  color: white;
-  max-width: 600px;
+.hero-badge{
+
+    display:inline-block;
+
+    background:#198754;
+
+    color:#fff;
+
+    padding:10px 24px;
+
+    border-radius:40px;
+
+    font-weight:600;
+
+    margin-bottom:25px;
+
+    letter-spacing:.5px;
+
 }
 
-.hero-content h1 {
-  font-size: 4rem;
-  font-weight: bold;
+.hero h1{
+
+    color:white;
+
+    font-size:68px;
+
+    font-weight:700;
+
+    line-height:1.1;
+
+    margin-bottom:25px;
+
 }
 
-.hero-content p {
-  font-size: 1.2rem;
-  margin: 20px 0;
+.hero p{
+
+    color:#e8e8e8;
+
+    font-size:20px;
+
+    line-height:1.8;
+
+    max-width:650px;
+
+    margin-bottom:40px;
+
 }
-.card-img-top {
-  height: 250px;
-  object-fit: cover;
+
+.hero-buttons{
+
+    display:flex;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+
+}
+
+.hero .btn{
+
+    padding:14px 36px;
+
+    border-radius:50px;
+
+    font-size:18px;
+
+    font-weight:600;
+
+}
+
+/* ===========================
+   WHY CHOOSE US
+=========================== */
+
+.feature-icon{
+
+    font-size:55px;
+
+    color:#198754;
+
+    margin-bottom:20px;
+
+}
+
+.card{
+
+    border:none;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    transition:.35s;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+}
+
+.card:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:0 20px 45px rgba(0,0,0,.15);
+
+}
+
+.card-body{
+
+    padding:25px;
+
+}
+
+.card h4{
+
+    font-weight:700;
+
+    margin-bottom:15px;
+
+}
+
+.card p{
+
+    color:#666;
+
+}
+
+/* ===========================
+   STATS
+=========================== */
+
+.stats{
+
+    background:#111827;
+
+    color:white;
+
+}
+
+.stats h2{
+
+    color:#198754;
+
+    font-size:48px;
+
+    font-weight:700;
+
+}
+
+.stats p{
+
+    font-size:18px;
+
+}
+
+/* ===========================
+   FEATURED CARS
+=========================== */
+
+.featured-cars{
+
+    background:#f8f9fa;
+
+}
+
+.card-img-top{
+
+    height:250px;
+
+    object-fit:cover;
+
+    transition:.4s;
+
+}
+
+.card:hover .card-img-top{
+
+    transform:scale(1.08);
+
+}
+
+.price{
+
+    color:#198754;
+
+    font-size:30px;
+
+    font-weight:700;
+
+}
+
+.btn-success{
+
+    border-radius:50px;
+
+    padding:12px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.btn-success:hover{
+
+    transform:translateY(-3px);
+
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media(max-width:992px){
+
+.hero{
+
+    text-align:center;
+
+}
+
+.hero h1{
+
+    font-size:48px;
+
+}
+
+.hero-buttons{
+
+    justify-content:center;
+
+}
+
+}
+
+@media(max-width:576px){
+
+.hero h1{
+
+    font-size:34px;
+
+}
+
+.hero p{
+
+    font-size:17px;
+
+}
+
+.stats h2{
+
+    font-size:34px;
+
+}
+
 }

@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Car } from '../../services/car';
 import { CommonModule } from '@angular/common';
+import { Car } from '../../services/car';
 
 @Component({
   selector: 'app-car-details',
+  standalone: true,
   imports: [CommonModule],
   templateUrl: './car-details.html',
   styleUrl: './car-details.css',
@@ -13,12 +14,15 @@ export class CarDetails implements OnInit {
 
   selectedCar: any;
 
+  imageOpen = false;
+
   constructor(
     private route: ActivatedRoute,
     private carService: Car
   ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
+
     const id = this.route.snapshot.paramMap.get('id');
 
     if (id) {
@@ -26,9 +30,19 @@ export class CarDetails implements OnInit {
         this.selectedCar = data;
       });
     }
+
   }
 
-  contactDealer() {
+  openImage(): void {
+    this.imageOpen = true;
+  }
+
+  closeImage(): void {
+    this.imageOpen = false;
+  }
+
+  contactDealer(): void {
     alert('Thank you for your interest! Our dealer will contact you soon.');
   }
+
 }

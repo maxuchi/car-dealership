@@ -1,0 +1,211 @@
+/* ===== Page ===== */
+
+.container {
+  max-width: 1200px;
+}
+
+/* ===== Main Image ===== */
+
+.main-image {
+  width: 100%;
+  border-radius: 20px;
+  cursor: zoom-in;
+  transition: 0.4s;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.main-image:hover {
+  transform: scale(1.03);
+}
+
+/* ===== Price ===== */
+
+.price {
+  color: #198754;
+  font-size: 42px;
+  font-weight: 700;
+}
+
+/* ===== Spec Cards ===== */
+
+.spec-card {
+  background: #fff;
+  border-radius: 18px;
+  padding: 25px;
+  text-align: center;
+  height: 100%;
+  transition: 0.35s;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .08);
+}
+
+.spec-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, .15);
+}
+
+.spec-card i {
+  font-size: 30px;
+  color: #198754;
+  margin-bottom: 15px;
+}
+
+.spec-card h6 {
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.spec-card p {
+  margin: 0;
+  color: #666;
+}
+
+/* ===== Feature Box ===== */
+
+.feature-box {
+  background: white;
+  border-radius: 20px;
+  padding: 30px;
+  margin-top: 40px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.08);
+}
+
+.feature-box h3 {
+  margin-bottom: 25px;
+}
+
+.feature-box p {
+  margin-bottom: 12px;
+}
+
+/* ===== Dealer Box ===== */
+
+.dealer-box {
+  background: #111827;
+  color: white;
+  border-radius: 20px;
+  padding: 30px;
+  margin-top: 40px;
+  box-shadow: 0 15px 35px rgba(0,0,0,.2);
+}
+
+.dealer-box hr {
+  border-color: rgba(255,255,255,.2);
+}
+
+.dealer-box p {
+  margin-bottom: 15px;
+}
+
+/* ===== Button ===== */
+
+.btn-success {
+  border-radius: 50px;
+  padding: 14px;
+  font-size: 18px;
+  font-weight: 600;
+  transition: .3s;
+}
+
+.btn-success:hover {
+  transform: translateY(-3px);
+}
+
+/* ===== LIGHTBOX ===== */
+
+.lightbox {
+
+  position: fixed;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background: rgba(0,0,0,.92);
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  z-index: 99999;
+
+  animation: fadeIn .3s ease;
+
+}
+
+.lightbox-image {
+
+  max-width: 90%;
+  max-height: 90vh;
+
+  border-radius: 20px;
+
+  box-shadow: 0 25px 60px rgba(0,0,0,.5);
+
+}
+
+.close-btn {
+
+  position: absolute;
+
+  top: 25px;
+  right: 35px;
+
+  color: white;
+
+  font-size: 45px;
+
+  cursor: pointer;
+
+  transition: .3s;
+
+}
+
+.close-btn:hover {
+
+  transform: rotate(90deg);
+
+}
+
+/* ===== Animation ===== */
+
+@keyframes fadeIn {
+
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+
+}
+
+/* ===== Responsive ===== */
+
+@media (max-width:992px){
+
+  .main-image{
+    margin-bottom:30px;
+  }
+
+  .price{
+    font-size:34px;
+  }
+
+}
+
+@media (max-width:576px){
+
+  .price{
+    font-size:28px;
+  }
+
+  .feature-box,
+  .dealer-box{
+    padding:20px;
+  }
+
+}

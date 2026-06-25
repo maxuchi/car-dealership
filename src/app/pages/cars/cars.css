@@ -1,27 +1,117 @@
+/* ===========================
+   PAGE TITLE
+=========================== */
+
+h1 {
+  font-weight: 700;
+  margin-bottom: 40px;
+}
+
+/* ===========================
+   CARD
+=========================== */
+
+.card {
+  border: none;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(0,0,0,.08);
+  transition: .35s ease;
+  height: 100%;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 22px 45px rgba(0,0,0,.15);
+}
+
+/* ===========================
+   IMAGE
+=========================== */
+
 .card-img-top {
   height: 250px;
   object-fit: cover;
-}
-.card {
-  transition: all 0.3s ease;
+  transition: .5s;
 }
 
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-}
-.card {
-  transition: 0.3s;
+.card:hover .card-img-top {
+  transform: scale(1.08);
 }
 
-.card:hover {
-  transform: translateY(-5px);
+/* ===========================
+   CARD BODY
+=========================== */
+
+.card-body {
+  padding: 25px;
 }
 
-.btn {
-  transition: 0.3s;
+/* ===========================
+   TITLE
+=========================== */
+
+.card-title {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 15px;
 }
 
-.btn:hover {
-  transform: scale(1.05);
+/* ===========================
+   PRICE
+=========================== */
+
+.card-text {
+  font-size: 28px;
+  color: #198754;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+/* ===========================
+   BUTTON
+=========================== */
+
+.btn-primary {
+  width: 100%;
+  border: none;
+  border-radius: 50px;
+  padding: 12px;
+  font-weight: 600;
+  transition: .3s;
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+}
+
+/* ===========================
+   FILTERS
+=========================== */
+
+.form-select {
+  border-radius: 15px;
+  padding: 12px;
+  box-shadow: none;
+}
+
+.form-select:focus {
+  border-color: #198754;
+  box-shadow: 0 0 0 .2rem rgba(25,135,84,.2);
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media(max-width:768px){
+
+.card-title{
+    font-size:22px;
+}
+
+.card-text{
+    font-size:24px;
+}
+
 }

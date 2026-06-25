@@ -1,71 +1,113 @@
 <div class="container py-5">
-  <h1 class="mb-4">Our Cars</h1>
 
-  <div class="row mb-4">
+  <h1 class="text-center fw-bold mb-5">
+    Our Premium Collection
+  </h1>
 
-    <div class="col-md-6">
+  <div class="row mb-5">
+
+    <div class="col-md-6 mb-3">
+
       <select
         class="form-select"
         [(ngModel)]="selectedBrand"
-        (change)="applyFilters()"
-      >
+        (change)="applyFilters()">
+
         <option value="All">All Brands</option>
         <option value="BMW">BMW</option>
         <option value="Audi">Audi</option>
         <option value="Mercedes">Mercedes</option>
+
       </select>
+
     </div>
 
-    <div class="col-md-6">
+    <div class="col-md-6 mb-3">
+
       <select
         class="form-select"
         [(ngModel)]="selectedPrice"
-        (change)="applyFilters()"
-      >
+        (change)="applyFilters()">
+
         <option value="All">All Prices</option>
         <option value="Under">Under $100,000</option>
         <option value="Over">Over $100,000</option>
+
       </select>
+
     </div>
 
   </div>
 
-  <div class="row">
+  <div class="row g-4">
 
     <div
-      class="col-md-4 mb-4"
+      class="col-lg-4 col-md-6"
       *ngFor="let car of filteredCars"
-      data-aos="zoom-in"
-    >
-      <div class="card">
+      data-aos="zoom-in">
+
+      <div class="card h-100">
 
         <img
           [src]="car.image"
-          class="card-img-top"
           [alt]="car.name"
-        />
+          class="card-img-top">
 
-        <div class="card-body">
+        <div class="card-body d-flex flex-column">
 
-          <h5 class="card-title">
+          <h4 class="card-title">
+
             {{ car.name }}
-          </h5>
 
-          <p class="card-text">
-            ${{ car.price }}
+          </h4>
+
+          <div class="mb-3">
+
+            <span class="badge bg-success me-2">
+
+              {{ car.year }}
+
+            </span>
+
+            <span class="badge bg-dark">
+
+              {{ car.engine }}
+
+            </span>
+
+          </div>
+
+          <p class="text-muted">
+
+            {{ car.description }}
+
           </p>
 
-          <a
-            class="btn btn-primary"
-            [routerLink]="['/cars', car.id]"
-          >
-            View Details
-          </a>
+          <h3 class="card-text">
+
+            ${{ car.price }}
+
+          </h3>
+
+          <div class="mt-auto">
+
+            <a
+              class="btn btn-primary w-100"
+              [routerLink]="['/cars', car.id]">
+
+              View Details
+              <i class="bi bi-arrow-right ms-2"></i>
+
+            </a>
+
+          </div>
 
         </div>
 
       </div>
+
     </div>
 
   </div>
+
 </div>
