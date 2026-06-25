@@ -5,5 +5,6 @@ import { Component } from '@angular/core';
   imports: [],
   templateUrl: './about.html',
   styleUrl: './about.css',
+ 
 })
 export class About {}

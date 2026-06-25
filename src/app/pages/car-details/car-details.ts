@@ -23,9 +23,6 @@ export class CarDetails implements OnInit {
 
     if (id) {
       this.carService.getCarById(id).subscribe((data: any) => {
-        console.log('ID =', id);
-        console.log('DATA =', data);
-
         this.selectedCar = data;
       });
     }

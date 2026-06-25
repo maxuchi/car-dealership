@@ -9,6 +9,7 @@ import { Car } from '../../services/car';
   imports: [RouterLink, CommonModule, FormsModule],
   templateUrl: './cars.html',
   styleUrl: './cars.css',
+ 
 })
 export class Cars implements OnInit {
 
