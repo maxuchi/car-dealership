@@ -19,25 +19,19 @@ export class CarDetails implements OnInit {
   ) {}
 
   ngOnInit() {
-
     const id = this.route.snapshot.paramMap.get('id');
 
     if (id) {
-      this.carService.getCarById(id).subscribe({
-        next: (data: any) => {
-          console.log('DATA:', data);
-          this.selectedCar = data;
-        },
-        error: (err) => {
-          console.log('ERROR:', err);
-        }
+      this.carService.getCarById(id).subscribe((data: any) => {
+        console.log('ID =', id);
+        console.log('DATA =', data);
+
+        this.selectedCar = data;
       });
     }
-
   }
 
   contactDealer() {
     alert('Thank you for your interest! Our dealer will contact you soon.');
   }
-
 }
