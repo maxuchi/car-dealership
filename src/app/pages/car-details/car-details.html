@@ -1,4 +1,4 @@
-<div *ngIf="selectedCar">
+<div *ngIf="selectedCar()">
 
   <div class="container py-5">
 
@@ -9,8 +9,8 @@
       <div class="col-lg-6" data-aos="fade-right">
 
         <img
-          [src]="selectedCar.image"
-          [alt]="selectedCar.name"
+          [src]="selectedCar().image"
+          [alt]="selectedCar().name"
           class="img-fluid rounded-4 shadow-lg main-image"
           (click)="openImage()">
 
@@ -26,19 +26,19 @@
 
         <h1 class="display-4 fw-bold">
 
-          {{ selectedCar.name }}
+          {{ selectedCar().name }}
 
         </h1>
 
         <h2 class="price mt-3 mb-4">
 
-          ${{ selectedCar.price }}
+          ${{ selectedCar().price }}
 
         </h2>
 
         <p class="lead">
 
-          {{ selectedCar.description }}
+          {{ selectedCar().description }}
 
         </p>
 
@@ -48,7 +48,7 @@
             <div class="spec-card">
               <i class="bi bi-gear-fill"></i>
               <h6>Engine</h6>
-              <p>{{ selectedCar.engine }}</p>
+              <p>{{ selectedCar().engine }}</p>
             </div>
           </div>
 
@@ -56,7 +56,7 @@
             <div class="spec-card">
               <i class="bi bi-speedometer2"></i>
               <h6>Power</h6>
-              <p>{{ selectedCar.power }}</p>
+              <p>{{ selectedCar().power }}</p>
             </div>
           </div>
 
@@ -64,7 +64,7 @@
             <div class="spec-card">
               <i class="bi bi-car-front-fill"></i>
               <h6>Transmission</h6>
-              <p>{{ selectedCar.transmission }}</p>
+              <p>{{ selectedCar().transmission }}</p>
             </div>
           </div>
 
@@ -72,7 +72,7 @@
             <div class="spec-card">
               <i class="bi bi-calendar-event-fill"></i>
               <h6>Year</h6>
-              <p>{{ selectedCar.year }}</p>
+              <p>{{ selectedCar().year }}</p>
             </div>
           </div>
 
@@ -80,7 +80,7 @@
             <div class="spec-card">
               <i class="bi bi-palette-fill"></i>
               <h6>Color</h6>
-              <p>{{ selectedCar.color }}</p>
+              <p>{{ selectedCar().color }}</p>
             </div>
           </div>
 
@@ -88,7 +88,7 @@
             <div class="spec-card">
               <i class="bi bi-sign-turn-right-fill"></i>
               <h6>Drivetrain</h6>
-              <p>{{ selectedCar.drivetrain }}</p>
+              <p>{{ selectedCar().drivetrain }}</p>
             </div>
           </div>
 
@@ -178,7 +178,7 @@
   </span>
 
   <img
-    [src]="selectedCar.image"
+    [src]="selectedCar().image"
     class="lightbox-image"
     (click)="$event.stopPropagation()">
 

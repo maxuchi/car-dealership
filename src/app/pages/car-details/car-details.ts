@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { Car } from '../../services/car';
@@ -12,8 +12,7 @@ import { Car } from '../../services/car';
 })
 export class CarDetails implements OnInit {
 
-  selectedCar: any;
-
+ selectedCar = signal<any>(null);
   imageOpen = false;
 
   constructor(
@@ -22,15 +21,14 @@ export class CarDetails implements OnInit {
   ) {}
 
   ngOnInit(): void {
-
     const id = this.route.snapshot.paramMap.get('id');
 
     if (id) {
       this.carService.getCarById(id).subscribe((data: any) => {
-        this.selectedCar = data;
+        this.selectedCar.set(data);
+        console.log(id);
       });
     }
-
   }
 
   openImage(): void {

@@ -41,9 +41,9 @@
 
   <div class="row g-4">
 
-    <div
+   @for (car of cars(); track $index) {
+     <div
       class="col-lg-4 col-md-6"
-      *ngFor="let car of filteredCars"
       data-aos="zoom-in">
 
       <div class="card h-100">
@@ -93,7 +93,7 @@
 
             <a
               class="btn btn-primary w-100"
-              [routerLink]="['/cars', car.id]">
+              [routerLink]="['/details', car.id]">
 
               View Details
               <i class="bi bi-arrow-right ms-2"></i>
@@ -107,6 +107,7 @@
       </div>
 
     </div>
+   }
 
   </div>
 
