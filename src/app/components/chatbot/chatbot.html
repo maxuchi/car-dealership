@@ -1,0 +1,107 @@
+<div class="chatbot-wrapper">
+  @if (isOpen()) {
+    <div class="chatbot">
+      <div class="chatbot-header">
+        <div class="assistant-avatar">AI</div>
+
+        <div class="assistant-info">
+          <h3>Premium Motors Assistant</h3>
+
+          <span class="assistant-status">
+            <span class="status-dot"></span>
+            Online
+          </span>
+        </div>
+
+        <button
+          type="button"
+          class="close-button"
+          (click)="closeChat()"
+          aria-label="Close chat"
+        >
+          ×
+        </button>
+      </div>
+
+      <div class="chatbot-response">
+        @if (messages().length === 0) {
+          <div class="welcome-message">
+            <div class="welcome-icon">AI</div>
+
+            <h4>How can I help you?</h4>
+
+            <p>
+              Ask about our cars, prices, specifications,
+              or compare vehicles.
+            </p>
+          </div>
+        }
+
+        @for (msg of messages(); track $index) {
+          <div
+            class="message-row"
+            [class.user-row]="msg.sender === 'user'"
+            [class.bot-row]="msg.sender === 'bot'"
+          >
+            @if (msg.sender === 'bot') {
+              <div class="message-avatar">AI</div>
+            }
+
+            <div
+              class="message-bubble"
+              [class.user-message]="msg.sender === 'user'"
+              [class.bot-message]="msg.sender === 'bot'"
+            >
+              {{ msg.text }}
+            </div>
+          </div>
+        }
+
+        @if (isLoading()) {
+          <div class="message-row bot-row">
+            <div class="message-avatar">AI</div>
+
+            <div class="message-bubble bot-message typing-indicator">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+        }
+      </div>
+
+      <div class="chatbot-input">
+        <input
+          type="text"
+          [ngModel]="message()"
+          (ngModelChange)="message.set($event)"
+          (keyup.enter)="sendMessage()"
+          placeholder="Ask about our cars..."
+          autocomplete="off"
+          [disabled]="isLoading()"
+        />
+
+        <button
+          type="button"
+          class="send-button"
+          (click)="sendMessage()"
+          [disabled]="!message().trim() || isLoading()"
+          aria-label="Send message"
+        >
+          ➤
+        </button>
+      </div>
+    </div>
+  }
+
+  @if (!isOpen()) {
+    <button
+      type="button"
+      class="chat-toggle-button"
+      (click)="toggleChat()"
+      aria-label="Open chat"
+    >
+      <span class="chat-toggle-icon">AI</span>
+    </button>
+  }
+</div>
