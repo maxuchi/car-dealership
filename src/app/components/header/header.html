@@ -1,97 +1,98 @@
 <nav class="navbar sticky-top">
-
   <div class="container">
-
-    <a class="navbar-brand" routerLink="/">
+    <a
+      class="navbar-brand"
+      routerLink="/"
+      (click)="closeMenu()"
+    >
       <i class="bi bi-car-front-fill me-2"></i>
       Premium Motors
     </a>
 
     <button
       class="menu-btn"
-      (click)="toggleMenu()">
-
+      type="button"
+      (click)="toggleMenu()"
+    >
       <i
         class="bi"
         [class.bi-list]="!menuOpen"
-        [class.bi-x-lg]="menuOpen">
-      </i>
-
+        [class.bi-x-lg]="menuOpen"
+      ></i>
     </button>
 
     <ul
       class="nav-links"
-      [class.open]="menuOpen">
-
+      [class.open]="menuOpen"
+    >
       <li>
-
         <a
           routerLink="/"
           routerLinkActive="active-link"
           [routerLinkActiveOptions]="{ exact: true }"
-          (click)="closeMenu()">
-
+          (click)="closeMenu()"
+        >
           Home
-
         </a>
-
       </li>
 
       <li>
-
         <a
           routerLink="/cars"
           routerLinkActive="active-link"
-          (click)="closeMenu()">
-
+          (click)="closeMenu()"
+        >
           Cars
-
         </a>
-
       </li>
 
       <li>
-
         <a
           routerLink="/about"
           routerLinkActive="active-link"
-          (click)="closeMenu()">
-
+          (click)="closeMenu()"
+        >
           About
-
         </a>
-
       </li>
 
-      <li>
+      @if (!isLoggedIn) {
+        <li>
+          <a
+            routerLink="/login"
+            routerLinkActive="active-link"
+            (click)="closeMenu()"
+          >
+            Login
+          </a>
+        </li>
 
-        <a
-          routerLink="/login"
-          routerLinkActive="active-link"
-          (click)="closeMenu()">
+        <li>
+          <a
+            class="register-btn"
+            routerLink="/register"
+            routerLinkActive="active-register"
+            (click)="closeMenu()"
+          >
+            Register
+          </a>
+        </li>
+      } @else {
+        <li class="user-name">
+          <i class="bi bi-person-circle me-2"></i>
+          {{ currentUserName }}
+        </li>
 
-          Login
-
-        </a>
-
-      </li>
-
-      <li>
-
-        <a
-          class="register-btn"
-          routerLink="/register"
-          routerLinkActive="active-register"
-          (click)="closeMenu()">
-
-          Register
-
-        </a>
-
-      </li>
-
+        <li>
+          <button
+            type="button"
+            class="logout-btn"
+            (click)="logout()"
+          >
+            Logout
+          </button>
+        </li>
+      }
     </ul>
-
   </div>
-
 </nav>

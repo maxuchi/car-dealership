@@ -1,134 +1,193 @@
-.navbar{
-    background:#111827;
-    padding:18px 0;
-    box-shadow:0 10px 25px rgba(0,0,0,.15);
+.navbar {
+  background: #111827;
+  padding: 18px 0;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 
-.container{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.navbar-brand{
-    color:white;
-    font-size:28px;
-    font-weight:700;
+.navbar-brand {
+  color: white;
+  font-size: 28px;
+  font-weight: 700;
+  text-decoration: none;
 }
 
-.navbar-brand i{
-    color:#198754;
+.navbar-brand:hover {
+  color: white;
 }
 
-.menu-btn{
-    display:none;
-    background:none;
-    border:none;
-    color:white;
-    font-size:30px;
+.navbar-brand i {
+  color: #198754;
 }
 
-.nav-links{
-    display:flex;
-    list-style:none;
-    align-items:center;
-    gap:24px;
-    margin:0;
+.menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
 }
 
-.nav-links a{
-    color:white;
-    text-decoration:none;
-    font-weight:500;
-    transition:.3s;
+.nav-links {
+  display: flex;
+  list-style: none;
+  align-items: center;
+  gap: 24px;
+  margin: 0;
+  padding: 0;
 }
 
-.nav-links a:hover{
-    color:#198754;
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
 }
 
-.register-btn{
-    background:#198754;
-    padding:10px 22px;
-    border-radius:40px;
+.nav-links a:hover {
+  color: #198754;
 }
 
-.register-btn:hover{
-    background:#157347;
-    color:white !important;
+
+/* ===========================
+   REGISTER BUTTON
+=========================== */
+
+.register-btn {
+  display: inline-block;
+  background: #198754;
+  padding: 10px 22px;
+  border-radius: 40px;
 }
 
-@media (max-width:992px){
-
-.menu-btn{
-    display:block;
+.register-btn:hover {
+  background: #157347;
+  color: white !important;
 }
 
-.nav-links{
 
-    position:absolute;
+/* ===========================
+   LOGGED IN USER
+=========================== */
 
-    top:100%;
-
-    left:0;
-
-    width:100%;
-
-    background:#111827;
-
-    flex-direction:column;
-
-    gap:0;
-
-    display:none;
-
-    padding:20px 0;
-
+.user-name {
+  display: flex;
+  align-items: center;
+  color: white;
+  font-weight: 600;
+  white-space: nowrap;
 }
 
-.nav-links.open{
-
-    display:flex;
-
+.user-name i {
+  color: #198754;
+  font-size: 19px;
 }
 
-.nav-links li{
 
-    width:100%;
+/* ===========================
+   LOGOUT BUTTON
+=========================== */
 
-    text-align:center;
+.logout-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 
-    padding:15px 0;
+  padding: 10px 22px;
 
+  background: transparent;
+  color: white;
+
+  border: 1px solid #198754;
+  border-radius: 40px;
+
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 500;
+
+  cursor: pointer;
+
+  transition:
+    background 0.3s,
+    color 0.3s,
+    transform 0.2s;
 }
 
-.register-btn{
-
-    display:inline-block;
-
+.logout-btn:hover {
+  background: #198754;
+  color: white;
+  transform: translateY(-1px);
 }
 
-}
+
 /* ===========================
    ACTIVE NAVIGATION
 =========================== */
 
-.active-link{
-
-    color:#198754 !important;
-
+.active-link {
+  color: #198754 !important;
 }
 
-.active-link::after{
-
-    width:100% !important;
-
+.active-link::after {
+  width: 100% !important;
 }
 
-.active-register{
+.active-register {
+  background: #157347 !important;
+  color: white !important;
+}
 
-    background:#157347 !important;
 
-    color:white !important;
+/* ===========================
+   RESPONSIVE
+=========================== */
 
+@media (max-width: 992px) {
+  .menu-btn {
+    display: block;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+
+    width: 100%;
+
+    background: #111827;
+
+    flex-direction: column;
+    gap: 0;
+
+    display: none;
+
+    padding: 20px 0;
+
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links li {
+    width: 100%;
+    text-align: center;
+    padding: 15px 0;
+  }
+
+  .user-name {
+    justify-content: center;
+  }
+
+  .register-btn,
+  .logout-btn {
+    display: inline-flex;
+  }
 }
