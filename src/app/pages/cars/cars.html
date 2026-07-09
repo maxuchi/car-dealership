@@ -4,34 +4,61 @@
     Our Premium Collection
   </h1>
 
+
+  <!-- FILTERS -->
+
   <div class="row mb-5">
+
+    <!-- BRAND FILTER -->
 
     <div class="col-md-6 mb-3">
 
       <select
         class="form-select"
-        [(ngModel)]="selectedBrand"
-        (change)="applyFilters()">
+        [ngModel]="selectedBrand()"
+        (ngModelChange)="selectedBrand.set($event)">
 
-        <option value="All">All Brands</option>
-        <option value="BMW">BMW</option>
-        <option value="Audi">Audi</option>
-        <option value="Mercedes">Mercedes</option>
+        <option value="All">
+          All Brands
+        </option>
+
+        <option value="BMW">
+          BMW
+        </option>
+
+        <option value="Audi">
+          Audi
+        </option>
+
+        <option value="Mercedes">
+          Mercedes
+        </option>
 
       </select>
 
     </div>
 
+
+    <!-- PRICE FILTER -->
+
     <div class="col-md-6 mb-3">
 
       <select
         class="form-select"
-        [(ngModel)]="selectedPrice"
-        (change)="applyFilters()">
+        [ngModel]="selectedPrice()"
+        (ngModelChange)="selectedPrice.set($event)">
 
-        <option value="All">All Prices</option>
-        <option value="Under">Under $100,000</option>
-        <option value="Over">Over $100,000</option>
+        <option value="All">
+          All Prices
+        </option>
+
+        <option value="Under">
+          Under $100,000
+        </option>
+
+        <option value="Over">
+          Over $100,000
+        </option>
 
       </select>
 
@@ -39,66 +66,79 @@
 
   </div>
 
+
+  <!-- CARS -->
+
   <div class="row g-4">
 
-   @for (car of cars(); track $index) {
-     <div
-      class="col-lg-4 col-md-6"
-      data-aos="zoom-in">
+    @for (car of filteredCars(); track car.id) {
 
-      <div class="card h-100">
+      <div
+        class="col-lg-4 col-md-6"
+        data-aos="zoom-in">
 
-        <img
-          [src]="car.image"
-          [alt]="car.name"
-          class="card-img-top">
+        <div class="card h-100">
 
-        <div class="card-body d-flex flex-column">
+          <img
+            [src]="car.image"
+            [alt]="car.name"
+            class="card-img-top">
 
-          <h4 class="card-title">
 
-            {{ car.name }}
+          <div class="card-body d-flex flex-column">
 
-          </h4>
+            <h4 class="card-title">
 
-          <div class="mb-3">
+              {{ car.name }}
 
-            <span class="badge bg-success me-2">
+            </h4>
 
-              {{ car.year }}
 
-            </span>
+            <div class="mb-3">
 
-            <span class="badge bg-dark">
+              <span class="badge bg-success me-2">
 
-              {{ car.engine }}
+                {{ car.year }}
 
-            </span>
+              </span>
 
-          </div>
 
-          <p class="text-muted">
+              <span class="badge bg-dark">
 
-            {{ car.description }}
+                {{ car.engine }}
 
-          </p>
+              </span>
 
-          <h3 class="card-text">
+            </div>
 
-            ${{ car.price }}
 
-          </h3>
+            <p class="text-muted">
 
-          <div class="mt-auto">
+              {{ car.description }}
 
-            <a
-              class="btn btn-primary w-100"
-              [routerLink]="['/details', car.id]">
+            </p>
 
-              View Details
-              <i class="bi bi-arrow-right ms-2"></i>
 
-            </a>
+            <h3 class="card-text">
+
+              ${{ car.price }}
+
+            </h3>
+
+
+            <div class="mt-auto">
+
+              <a
+                class="btn btn-primary w-100"
+                [routerLink]="['/details', car.id]">
+
+                View Details
+
+                <i class="bi bi-arrow-right ms-2"></i>
+
+              </a>
+
+            </div>
 
           </div>
 
@@ -106,8 +146,19 @@
 
       </div>
 
-    </div>
-   }
+    } @empty {
+
+      <div class="col-12">
+
+        <div class="alert alert-warning text-center">
+
+          No vehicles found matching the selected filters.
+
+        </div>
+
+      </div>
+
+    }
 
   </div>
 
